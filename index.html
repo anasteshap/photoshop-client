@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма загрузки файла</title>
+    <link rel="stylesheet" type="text/css"
+          href="/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Загрузка файла</h1>
+
+<!--<form id="fileUploadForm" enctype="multipart/form-data">-->
+<input type="file" id="file">
+<button onclick="upload()" enctype="multipart/form-data">Загрузить изображение</button>
+<a id="downloadLink" href="" download>Скачать изображение</a>
+
+<form id="imageForm" enctype="multipart/form-data">
+    <label>
+        <select name="colorSpace">
+            <option value="RGB">RGB</option>
+            <option value="HSL">HSL</option>
+            <option value="HSV">HSV</option>
+            <option value="YCbCr.601">YCbCr.601</option>
+            <option value="YCbCr.709">YCbCr.709</option>
+            <option value="YCoCg">YCoCg</option>
+            <option value="CMY">CMY</option>
+        </select>
+    </label>
+    <button onclick="convert()" type="button" id="convertButton">Конвертировать</button>
+</form>
+
+<canvas id="canvas" style="width: 1400px;"></canvas>
+<!--</form>-->
+
+<script src="js/index.js"></script>
+<!--<script src="js/convert.js"></script>-->
+
+</body>
+</html>
