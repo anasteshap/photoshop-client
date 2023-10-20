@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма загрузки файла</title>
-    <link rel="stylesheet" type="text/css"
-          href="/css/style.css">
+<!--    <link rel="stylesheet" type="text/css"-->
+<!--          href="/css/style.css">-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -21,13 +21,13 @@
 <form id="imageForm" enctype="multipart/form-data">
     <label>
         <select name="colorSpace">
-            <option value="RGB">RGB</option>
-            <option value="HSL">HSL</option>
-            <option value="HSV">HSV</option>
-            <option value="YCbCr.601">YCbCr.601</option>
-            <option value="YCbCr.709">YCbCr.709</option>
-            <option value="YCoCg">YCoCg</option>
-            <option value="CMY">CMY</option>
+            <option class="converterType" value="RGB">RGB</option>
+            <option class="converterType" value="HSL">HSL</option>
+            <option class="converterType" value="HSV">HSV</option>
+            <option class="converterType" value="YCbCr.601">YCbCr.601</option>
+            <option class="converterType" value="YCbCr.709">YCbCr.709</option>
+            <option class="converterType" value="YCoCg">YCoCg</option>
+            <option class="converterType" value="CMY">CMY</option>
         </select>
     </label>
     <button onclick="convert()" type="button" id="convertButton">Конвертировать</button>
