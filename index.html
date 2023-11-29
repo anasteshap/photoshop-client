@@ -47,6 +47,7 @@
     </label>
     <button onclick="convert()" type="button" id="convertButton">Конвертировать</button>
 </form>
+
 <form id="filterForm" enctype="multipart/form-data">
     <label>
         <select name="channel">
@@ -57,11 +58,28 @@
     </label>
     <button onclick="chooseFilter()" type="button" id="numberChannelButton">Показать канал</button>
 </form>
+
+<form id="convertGammaForm" enctype="multipart/form-data">
+    <label>
+        <input type="number" id="doubleInputConvertGamma" name="convertGamma" step="any">
+    </label>
+    <button onclick="chooseConvertGamma()" type="button" id="convertGammaButton">convertGamma</button>
+</form>
+
+<form id="assignGammaForm" enctype="multipart/form-data">
+    <label>
+        <label>
+            <input type="number" id="doubleInputAssignGamma" name="assignGamma" step="any">
+        </label>
+    </label>
+    <button onclick="chooseAssignGamma()" type="button" id="assignGammaButton">assignGamma</button>
+</form>
+
 <canvas id="canvas" style="width: 1400px;"></canvas>
 <!--</form>-->
 
 <script src="js/index.js"></script>
-<!--<script src="js/convert.js"></script>-->
+<script src="js/gamma.js"></script>
 
 </body>
 </html>
