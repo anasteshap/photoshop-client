@@ -73,10 +73,13 @@ upload = function () {
     let selectElement = document.querySelector('select[name="colorSpace"]');
     let selectedOption = selectElement.options[selectElement.selectedIndex];
     let selectedValue = selectedOption.value;
+    let gammaElement = document.querySelector('input[name="gamma"]');
+    let gammaValue = gammaElement.value;
 
     let formData = new FormData();
     formData.append("file", f);
     formData.append("ColorSpace", selectedValue);
+    formData.append("gamma", gammaValue);
 
     fetch('http://localhost:8080/upload', {
         method: 'POST',

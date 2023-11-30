@@ -25,11 +25,18 @@
 <!--<form id="fileUploadForm" enctype="multipart/form-data">-->
 <input type="file" id="file">
 <label for="colorSpace">Выберите цветовое пространство:</label>
-    <select name="colorSpace" id="colorSpace">
-        <option value="RGB">RGB</option>
-        <option value="HSL">HSL</option>
-        <option value="HSV">HSV</option>
-    </select>
+<select name="colorSpace" id="colorSpace">
+    <option value="RGB">RGB</option>
+    <option value="HSL">HSL</option>
+    <option value="HSV">HSV</option>
+    <option class="converterType" value="YCbCr601">YCbCr601</option>
+    <option class="converterType" value="YCbCr709">YCbCr709</option>
+    <option class="converterType" value="YCoCg">YCoCg</option>
+    <option class="converterType" value="CMY">CMY</option>
+</select>
+<label>
+    <input type="number" id="gamma" name="gamma" step="any">
+</label>
 <button onclick="upload()" enctype="multipart/form-data">Загрузить изображение</button>
 <a id="downloadLink" href="" download>Скачать изображение</a>
 
