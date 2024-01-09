@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма загрузки файла</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Загрузка файла</h1>
+
+<!--<form id="uploadForm" enctype="multipart/form-data">-->
+<!--    <input type="file" name="photo" id="file">-->
+<!--    <label for="colorSpace">Выберите цветовое пространство:</label>-->
+<!--    <select name="colorSpace" id="colorSpace">-->
+<!--        <option value="RGB">RGB</option>-->
+<!--        <option value="HSL">HSL</option>-->
+<!--        <option value="HSV">HSV</option>-->
+<!--    </select>-->
+<!--    <button type="submit" id="submitButton" onclick="upload()">Загрузить изображение</button>-->
+<!--</form>-->
+
+<!--<form id="fileUploadForm" enctype="multipart/form-data">-->
+<input type="file" id="file">
+<label for="colorSpace">Выберите цветовое пространство:</label>
+<select name="colorSpace" id="colorSpace">
+    <option value="RGB">RGB</option>
+    <option value="HSL">HSL</option>
+    <option value="HSV">HSV</option>
+    <option class="converterType" value="YCbCr601">YCbCr601</option>
+    <option class="converterType" value="YCbCr709">YCbCr709</option>
+    <option class="converterType" value="YCoCg">YCoCg</option>
+    <option class="converterType" value="CMY">CMY</option>
+</select>
+<label>
+    <input type="number" id="gamma" name="gamma" step="any">
+</label>
+<button onclick="upload()" enctype="multipart/form-data">Загрузить изображение</button>
+<a id="downloadLink" href="http://localhost:8080/getFile" download>Скачать изображение</a>
+<!--<a href="D:\\projectsJava\\photoshop\\photoshop-lab-3\\photoshop-server\\src\\main\\resources\\first.ppm" download="">Скачать изображение</a>-->
+
+<form id="imageForm" enctype="multipart/form-data">
+    <label>
+        <select name="toColorSpace">
+            <option class="converterType" value="RGB">RGB</option>
+            <option class="converterType" value="HSL">HSL</option>
+            <option class="converterType" value="HSV">HSV</option>
+            <option class="converterType" value="YCbCr601">YCbCr601</option>
+            <option class="converterType" value="YCbCr709">YCbCr709</option>
+            <option class="converterType" value="YCoCg">YCoCg</option>
+            <option class="converterType" value="CMY">CMY</option>
+        </select>
+    </label>
+    <button onclick="convert()" type="button" id="convertButton">Конвертировать</button>
+</form>
+
+<form id="filterForm" enctype="multipart/form-data">
+    <label>
+        <select name="channel">
+            <option class="numberChannel" value="1">1</option>
+            <option class="numberChannel" value="2">2</option>
+            <option class="numberChannel" value="3">3</option>
+        </select>
+    </label>
+    <button onclick="chooseFilter()" type="button" id="numberChannelButton">Показать канал</button>
+</form>
+
+<form id="convertGammaForm" enctype="multipart/form-data">
+    <label>
+        <input type="number" id="doubleInputConvertGamma" name="convertGamma" step="any">
+    </label>
+    <button onclick="chooseConvertGamma()" type="button" id="convertGammaButton">convertGamma</button>
+</form>
+
+<form id="assignGammaForm" enctype="multipart/form-data">
+    <label>
+        <label>
+            <input type="number" id="doubleInputAssignGamma" name="assignGamma" step="any">
+        </label>
+    </label>
+    <button onclick="chooseAssignGamma()" type="button" id="assignGammaButton">assignGamma</button>
+</form>
+
+<form>
+    <label for="dithering">Выберите тип дизеринга:</label>
+    <select name="ditheringType" id="dithering">
+        <option value="ORDERED_8x8">ORDERED_8x8</option>
+        <option value="RANDOM">RANDOM</option>
+        <option value="FLOYD_STEINBERG">FLOYD_STEINBERG</option>
+        <option value="ATKINSON">ATKINSON</option>
+    </select>
+    <label for="bitRate">Выберите битность от 1 до 8:</label>
+    <input type="number" id="bitRate" name="bitRate">
+    <button onclick="dither()" enctype="multipart/form-data">Применить дизеринг</button>
+</form>
+
+<!--<form>-->
+<label for="scaling">Выберите способ масштабирования:</label>
+<select name="scalingType" id="scaling">
+    <option value="NEAREST_NEIGHBOR">NEAREST_NEIGHBOR</option>
+    <option value="BILINEAR">BILINEAR</option>
+    <option value="LANCZOS3">LANCZOS3</option>
+    <option value="BC_SPLINE">BC_SPLINE</option>
+</select>
+<label for="newHeight">Выберите новую высоту:</label>
+<input type="number" id="newHeight" name="newHeight">
+
+<label for="newWidth">Выберите новую ширину:</label>
+<input type="number" id="newWidth" name="newWidth">
+
+<label for="bCoef">Выберите b:</label>
+<input type="number" id="bCoef" name="bCoef">
+
+<label for="cCoef">Выберите c:</label>
+<input type="number" id="cCoef" name="cCoef">
+<button onclick="scaling()" enctype="multipart/form-data">Применить масштабирование</button>
+<!--</form>-->
+
+
+<form id="autocorrection" enctype="multipart/form-data">
+    <label>
+        <input type="number" id="autocorrectionInput" name="autocorrectionName" step="any">
+    </label>
+    <button onclick="chooseBoarder()" type="button" id="autocorrectionButton">Autocorrection</button>
+</form>
+
+<button onclick="histogram()" type="button" id="histogram">create histogram</button>
+<canvas id="canvasHistogram" style="width: 300px;"></canvas>
+<canvas id="canvas" style="width: 1000px;"></canvas>
+
+<!--</form>-->
+
+<script src="js/index.js"></script>
+<script src="js/gamma.js"></script>
+<script src="js/histogram.js"></script>
+<script src="js/dither.js"></script>
+<script src="js/scale.js"></script>
+
+</body>
+</html>
