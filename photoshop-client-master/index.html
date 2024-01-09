@@ -11,16 +11,6 @@
 
 <h1>Загрузка файла</h1>
 
-<!--<form id="uploadForm" enctype="multipart/form-data">-->
-<!--    <input type="file" name="photo" id="file">-->
-<!--    <label for="colorSpace">Выберите цветовое пространство:</label>-->
-<!--    <select name="colorSpace" id="colorSpace">-->
-<!--        <option value="RGB">RGB</option>-->
-<!--        <option value="HSL">HSL</option>-->
-<!--        <option value="HSV">HSV</option>-->
-<!--    </select>-->
-<!--    <button type="submit" id="submitButton" onclick="upload()">Загрузить изображение</button>-->
-<!--</form>-->
 
 <!--<form id="fileUploadForm" enctype="multipart/form-data">-->
 <input type="file" id="file">
@@ -83,18 +73,20 @@
     <button onclick="chooseAssignGamma()" type="button" id="assignGammaButton">assignGamma</button>
 </form>
 
-<form>
-    <label for="dithering">Выберите тип дизеринга:</label>
-    <select name="ditheringType" id="dithering">
-        <option value="ORDERED_8x8">ORDERED_8x8</option>
-        <option value="RANDOM">RANDOM</option>
-        <option value="FLOYD_STEINBERG">FLOYD_STEINBERG</option>
-        <option value="ATKINSON">ATKINSON</option>
-    </select>
-    <label for="bitRate">Выберите битность от 1 до 8:</label>
-    <input type="number" id="bitRate" name="bitRate">
-    <button onclick="dither()" enctype="multipart/form-data">Применить дизеринг</button>
-</form>
+<label for="dithering">Выберите тип дизеринга:</label>
+<select name="ditheringType" id="dithering">
+    <option value="ORDERED_8x8">ORDERED_8x8</option>
+    <option value="RANDOM">RANDOM</option>
+    <option value="FLOYD_STEINBERG">FLOYD_STEINBERG</option>
+    <option value="ATKINSON">ATKINSON</option>
+</select>
+<label for="bitRate">Выберите битность от 1 до 8:</label>
+<input type="number" id="bitRate" name="bitRate">
+<button onclick="dither()" enctype="multipart/form-data">Применить дизеринг</button>
+
+
+<br>
+<br>
 
 <!--<form>-->
 <label for="scaling">Выберите способ масштабирования:</label>
@@ -119,6 +111,26 @@
 <!--</form>-->
 
 
+
+<br>
+<br>
+<label for="scaling">Выберите способ фильтрации:</label>
+<select name="filterType" id="filter">
+    <option value="THRESHOLD_FILTER">THRESHOLD_FILTER</option>
+    <option value="OTSU_THRESHOLD_FILTER">OTSU_THRESHOLD_FILTER</option>
+    <option value="MEDIAN_FILTER">MEDIAN_FILTER</option>
+    <option value="GAUSSIAN_FILTER">GAUSSIAN_FILTER</option>
+    <option value="LINEAR_AVERAGING_FILTER">LINEAR_AVERAGING_FILTER</option>
+    <option value="UNSHARP_MASKING">UNSHARP_MASKING</option>
+    <option value="CONTRAST_ADAPTIVE_SHARPENING">CONTRAST_ADAPTIVE_SHARPENING</option>
+    <option value="SOBEL_FILTER">SOBEL_FILTER</option>
+    <option value="CANNY_EDGE_DETECTOR">CANNY_EDGE_DETECTOR</option>
+</select>
+<label for="params">Введите параметры через пробел:</label>
+<input type="text" id="params" name="params">
+<button onclick="filter()" enctype="multipart/form-data">Применить фильтрацию</button>
+
+
 <form id="autocorrection" enctype="multipart/form-data">
     <label>
         <input type="number" id="autocorrectionInput" name="autocorrectionName" step="any">
@@ -137,6 +149,9 @@
 <script src="js/histogram.js"></script>
 <script src="js/dither.js"></script>
 <script src="js/scale.js"></script>
+<script src="js/gradient.js"></script>
+<script src="js/filter.js"></script>
+
 
 </body>
 </html>
